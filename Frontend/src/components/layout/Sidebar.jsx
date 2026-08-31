@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function Sidebar({ isOpen, onClose }) {
   return (
     <>
-      {/* Mobile Dark Backdrop */}
+      {/* Mobile  Backdrop */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-40 md:hidden"
