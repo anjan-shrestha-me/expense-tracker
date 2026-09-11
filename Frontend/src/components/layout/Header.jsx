@@ -1,4 +1,5 @@
-function Header() {
+import { FiMenu } from "react-icons/fi";
+function Header({ onToggleSidebar }) {
 
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
@@ -9,9 +10,13 @@ function Header() {
 
   return (
     <div className="bg-white rounded-xl shadow-md p-6 mb-4">
-
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-
+      <div className="flex flex-col  md:flex-row justify-between items-start md:items-center gap-4">
+        <button
+          onClick={onToggleSidebar}
+          className="md:hidden text-gray-700"
+        >
+          <FiMenu size={28} />
+        </button>
         <div>
 
           <h1 className="text-4xl font-bold text-gray-800">
@@ -24,7 +29,7 @@ function Header() {
 
         </div>
 
-        <div className="text-right">
+        <div className="text-right self-end md:self-auto">
 
           <p className="text-gray-500 text-sm">
             Today

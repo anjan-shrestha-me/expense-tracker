@@ -58,10 +58,10 @@ function Transaction() {
   const filteredTransactions = transactions.filter((transaction) => {
     const matchesSearch =
       transaction.title
-        .toLowerCase()
+        ?.toLowerCase()
         .includes(search.toLowerCase()) ||
       transaction.category
-        .toLowerCase()
+        ?.toLowerCase()
         .includes(search.toLowerCase());
 
     const matchesType =
@@ -71,10 +71,22 @@ function Transaction() {
       category === "All Categories" ||
       transaction.category === category;
 
-    const matchesDate =
-      date === "" || transaction.date === date;
+    // Safely check if transaction.date exists and is valid before converting to ISO string
+    let transactionDateString = "";
+    if (transaction.date) {
+      const parsedDate = new Date(transaction.date);
+      // Check if parsedDate is a valid date (not NaN)
+      if (!isNaN(parsedDate.getTime())) {
+        transactionDateString = parsedDate.toISOString().split("T")[0];
+      }
+    }
+
+    // If no date filter selected (date === ""), match all. Otherwise compare strings.
+    const matchesDate = date === "" || transactionDateString === date;
+
     return matchesSearch && matchesType && matchesCategory && matchesDate;
   });
+
   const sortedTransactions = [...filteredTransactions];
   if (sort === "Newest First") {
     sortedTransactions.sort((a, b) => b.id - a.id);
@@ -97,7 +109,7 @@ function Transaction() {
 
   function deleteTransaction(id) {
     const updatedTransactions = transactions.filter(
-      (transaction) => transaction.id !== id
+      (transaction) => transaction._id !== id
     );
 
     setTransactions(updatedTransactions);

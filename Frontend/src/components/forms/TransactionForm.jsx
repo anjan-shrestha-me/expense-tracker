@@ -29,16 +29,16 @@ function TransactionForm({ addTransaction }) {
   ];
 
   function handleTypeChange(e) {
-  const newType = e.target.value;
+    const newType = e.target.value;
 
-  setType(newType);
+    setType(newType);
 
-  if (newType === "Income") {
-    setCategory("Salary");
-  } else {
-    setCategory("Food");
+    if (newType === "Income") {
+      setCategory("Salary");
+    } else {
+      setCategory("Food");
+    }
   }
-}
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -69,6 +69,7 @@ function TransactionForm({ addTransaction }) {
           amount: Number(amount),
           type,
           category,
+          date: new Date().toISOString()
         }),
       });
 

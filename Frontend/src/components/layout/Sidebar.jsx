@@ -14,9 +14,8 @@ function Sidebar({ isOpen, onClose }) {
 
       {/* Sidebar Drawer */}
       <aside
-        className={`fixed left-0 top-0 h-screen w-64 bg-gray-900 text-white p-6 flex flex-col z-50 transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-        }`}
+        className={`fixed left-0 top-0 h-screen w-64 bg-gray-900 text-white p-6 flex flex-col z-50 transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+          }`}
       >
         {/* Header & Close Button */}
         <div className="flex justify-between items-center mb-10">
@@ -35,8 +34,7 @@ function Sidebar({ isOpen, onClose }) {
             to="/dashboard"
             onClick={onClose}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-lg transition duration-300 ${
-                isActive ? "bg-emerald-600 text-white" : "hover:bg-gray-800"
+              `flex items-center gap-3 px-4 py-3 rounded-lg transition duration-300 ${isActive ? "bg-emerald-600 text-white" : "hover:bg-gray-800"
               }`
             }
           >
@@ -48,8 +46,7 @@ function Sidebar({ isOpen, onClose }) {
             to="/transaction"
             onClick={onClose}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-lg transition duration-300 ${
-                isActive ? "bg-emerald-600 text-white" : "hover:bg-gray-800"
+              `flex items-center gap-3 px-4 py-3 rounded-lg transition duration-300 ${isActive ? "bg-emerald-600 text-white" : "hover:bg-gray-800"
               }`
             }
           >
@@ -61,8 +58,7 @@ function Sidebar({ isOpen, onClose }) {
             to="/analytics"
             onClick={onClose}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-lg transition duration-300 ${
-                isActive ? "bg-emerald-600 text-white" : "hover:bg-gray-800"
+              `flex items-center gap-3 px-4 py-3 rounded-lg transition duration-300 ${isActive ? "bg-emerald-600 text-white" : "hover:bg-gray-800"
               }`
             }
           >

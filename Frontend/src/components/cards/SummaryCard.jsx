@@ -12,12 +12,12 @@ function SummaryCard({ title, amount, icon, color }) {
       <div className="flex items-center gap-2">
         <span className="text-2xl">{icon}</span>
 
-        <h3 className="text-gray-500 text-lg">
+        <h3 className="text-gray-500 text-base lg:text-lg">
           {title}
         </h3>
       </div>
 
-      <h2 className="text-3xl font-bold mt-4">
+      <h2 className="text-2xl lg:text-3xl font-bold mt-4">
         ${amount}
       </h2>
     </div>
@@ -25,3 +25,4 @@ function SummaryCard({ title, amount, icon, color }) {
 }
 
 export default SummaryCard;
+

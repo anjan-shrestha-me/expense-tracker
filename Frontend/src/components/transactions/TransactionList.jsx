@@ -80,12 +80,19 @@ function TransactionList({
 
               <p
                 className={`text-sm mt-1 ${transaction.type?.toLowerCase() === "income"
-                    ? "text-green-600"
-                    : "text-red-600"
+                  ? "text-green-600"
+                  : "text-red-600"
                   }`}
               >
                 {transaction.type} • {transaction.category} •{" "}
-                {transaction.date}
+                {transaction.date && !isNaN(new Date(transaction.date).getTime())
+                  ? new Date(transaction.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })
+                  : "N/A"}
+
               </p>
             </div>
 
@@ -93,8 +100,8 @@ function TransactionList({
             <div className="flex items-center gap-5">
               <p
                 className={`text-xl font-bold ${transaction.type?.toLowerCase() === "income"
-                    ? "text-green-600"
-                    : "text-red-600"
+                  ? "text-green-600"
+                  : "text-red-600"
                   }`}
               >
                 {transaction.type?.toLowerCase() === "income"
